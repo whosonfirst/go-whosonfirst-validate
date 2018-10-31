@@ -19,7 +19,7 @@ All of this package's dependencies are bundled with the code in the `vendor` dir
 This tool will attempt to load all the (principal) WOF documents (using `go-whosonfirst-geojson-v2`) passed to it using a `go-whosonfirst-index` indexer.
 
 ```
-./bin/wof-validate-index -h
+$> ./bin/wof-validate-index -h
 Usage of ./bin/wof-validate-index:
   -liberal
     	Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).
@@ -32,7 +32,7 @@ Usage of ./bin/wof-validate-index:
 For example:
 
 ```
-./bin/wof-validate-index /usr/local/data/whosonfirst-data
+$> ./bin/wof-validate-index /usr/local/data/whosonfirst-data
 ...time passes
 ```
 
