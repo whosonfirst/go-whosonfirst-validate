@@ -1,4 +1,4 @@
-# go-whosonfirst-valida
+# go-whosonfirst-validate
 
 Go package for validating Who's On First documents
 
