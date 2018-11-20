@@ -5,9 +5,11 @@ import (
 	"flag"
 	"fmt"
 	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
+	"github.com/whosonfirst/go-whosonfirst-geojson-v2/properties/whosonfirst"	
 	"github.com/whosonfirst/go-whosonfirst-index"
 	"github.com/whosonfirst/go-whosonfirst-index/utils"
 	"github.com/whosonfirst/go-whosonfirst-log"
+	"github.com/whosonfirst/go-whosonfirst-names/tags"
 	"github.com/whosonfirst/warning"
 	"io"
 	"os"
@@ -24,6 +26,8 @@ func main() {
 	desc_mode := fmt.Sprintf("The mode to use when indexing data. Valid modes are: %s", str_valid_modes)
 
 	mode := flag.String("mode", "repo", desc_mode)
+
+	check_names := flag.Bool("names", false, "Validate WOF/RFC 5646 names.")
 
 	liberal := flag.Bool("liberal", false, "Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).")
 	verbose := flag.Bool("verbose", false, "Be chatty about what's happening.")
@@ -64,6 +68,23 @@ func main() {
 			} else {
 				return err
 			}
+		}
+
+		if *check_names {
+
+			names := whosonfirst.Names(f)
+
+			for tag, _ := range names {
+
+				_, err := tags.NewLangTag(tag)
+
+				if err != nil {
+					logger.Warning("failed to parse name tag (%s) for %s, because %s", tag, path, err)
+				}
+
+				return err
+			}
+
 		}
 
 		if *verbose {
