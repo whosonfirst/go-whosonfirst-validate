@@ -12,6 +12,12 @@ make bin
 
 All of this package's dependencies are bundled with the code in the `vendor` directory.
 
+## Background
+
+So far this is a tool built and developed out of expediency (translation: why is `x` broken?). So far it validates the things that have needed to be validated.
+
+Going forward it would be nice to imagine this as both a general-purpose validation tool and a core piece of a Go "export" package for Who's On First documents. At present exporting WOF documents is handled exclusively by the `py-mapzen-whosonfirst-export` and `py-mapzen-whosonfirst-geojson` libraries and it would be nice to have something in another language (and one that can generate pre-compiled binaries).
+
 ## Tools
 
 ### wof-validate-index
