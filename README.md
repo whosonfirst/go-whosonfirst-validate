@@ -31,6 +31,8 @@ Usage of ./bin/wof-validate-index:
     	Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).
   -mode string
     	The mode to use when indexing data. Valid modes are: directory, feature, feature-collection, files, geojson-ls, meta, path, repo, sqlite (default "repo")
+  -names
+    	Validate WOF/RFC 5646 names.	
   -verbose
     	Be chatty about what's happening.
 ```
@@ -43,6 +45,13 @@ $> ./bin/wof-validate-index /usr/local/data/whosonfirst-data
 ```
 
 Assuming everything loads successfully you won't see any output (unless you've passed the `-verbose` flag (in which case you'll see _a lot_ of output)).
+
+Or this:
+
+```
+> ./bin/wof-validate-index -names /usr/local/data/whosonfirst-data
+error: Failed to parse name tag for /usr/local/data/whosonfirst-data/data/112/585/728/5/1125857285.geojson, because Failed to parse language tag 'eng_v_variant'
+```
 
 ## See also
 

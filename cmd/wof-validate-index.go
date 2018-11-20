@@ -2,10 +2,11 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2/properties/whosonfirst"	
+	"github.com/whosonfirst/go-whosonfirst-geojson-v2/properties/whosonfirst"
 	"github.com/whosonfirst/go-whosonfirst-index"
 	"github.com/whosonfirst/go-whosonfirst-index/utils"
 	"github.com/whosonfirst/go-whosonfirst-log"
@@ -79,10 +80,9 @@ func main() {
 				_, err := tags.NewLangTag(tag)
 
 				if err != nil {
-					logger.Warning("failed to parse name tag (%s) for %s, because %s", tag, path, err)
+					msg := fmt.Sprintf("Failed to parse name tag for %s, because %s", path, err)
+					return errors.New(msg)
 				}
-
-				return err
 			}
 
 		}
