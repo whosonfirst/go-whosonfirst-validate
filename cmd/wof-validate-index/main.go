@@ -6,11 +6,10 @@ import (
 	"flag"
 	"fmt"
 	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2/properties/whosonfirst"
 	"github.com/whosonfirst/go-whosonfirst-index"
 	"github.com/whosonfirst/go-whosonfirst-index/utils"
 	"github.com/whosonfirst/go-whosonfirst-log"
-	"github.com/whosonfirst/go-whosonfirst-names/tags"
+	"github.com/whosonfirst/go-whosonfirst-validate"
 	"github.com/whosonfirst/warning"
 	"io"
 	"os"
@@ -73,18 +72,12 @@ func main() {
 
 		if *check_names {
 
-			names := whosonfirst.Names(f)
+			_, err := validate.ValidateNames(f)
 
-			for tag, _ := range names {
-
-				_, err := tags.NewLangTag(tag)
-
-				if err != nil {
-					msg := fmt.Sprintf("Failed to parse name tag for %s, because %s", path, err)
-					return errors.New(msg)
-				}
+			if err != nil {
+				msg := fmt.Sprintf("Failed to parse name tag for %s, because %s", path, err)
+				return errors.New(msg)
 			}
-
 		}
 
 		if *verbose {
