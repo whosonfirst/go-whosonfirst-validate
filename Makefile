@@ -1,2 +1,2 @@
-tools:
-	go build -mod vendor -o bin/wof-validate-index cmd/wof-validate-index/main.go	
+cli:
+	go build -mod vendor -o bin/wof-validate cmd/wof-validate/main.go	

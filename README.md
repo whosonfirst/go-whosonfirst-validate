@@ -2,15 +2,9 @@
 
 Go package for validating Who's On First documents
 
-## Install
+## Documentation
 
-You will need to have both `Go` (version [1.12](https://golang.org/dl/) or higher) and the `make` programs installed on your computer. Assuming you do just type:
-
-```
-make tools
-```
-
-All of this package's dependencies are bundled with the code in the `vendor` directory.
+Documentation is incomplete.
 
 ## Background
 
@@ -20,19 +14,19 @@ Going forward it would be nice to imagine this as both a general-purpose validat
 
 ## Tools
 
-### wof-validate-index
+### wof-validate
 
-This tool will attempt to load all the (principal) WOF documents (using `go-whosonfirst-geojson-v2`) passed to it using a `go-whosonfirst-index` indexer.
+This tool will attempt to load all the (principal) WOF documents (using `go-whosonfirst-geojson-v2`) passed to it using a `go-whosonfirst-iterate` iterator.
 
 ```
-$> ./bin/wof-validate-index -h
-Usage of ./bin/wof-validate-index:
+$> ./bin/wof-validate -h
+Usage of ./bin/wof-validate:
+  -iterator-uri string
+    	A valid whosonfirst/go-whosonfirst-iterate URI (default "repo://")
   -liberal
     	Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).
-  -mode string
-    	The mode to use when indexing data. Valid modes are: directory, feature, feature-collection, files, geojson-ls, meta, path, repo, sqlite (default "repo")
   -names
-    	Validate WOF/RFC 5646 names.	
+    	Validate WOF/RFC 5646 names.
   -verbose
     	Be chatty about what's happening.
 ```
@@ -40,7 +34,7 @@ Usage of ./bin/wof-validate-index:
 For example:
 
 ```
-$> ./bin/wof-validate-index /usr/local/data/whosonfirst-data
+$> ./bin/wof-validate /usr/local/data/whosonfirst-data
 ...time passes
 ```
 
@@ -49,11 +43,11 @@ Assuming everything loads successfully you won't see any output (unless you've p
 Or this:
 
 ```
-> ./bin/wof-validate-index -names /usr/local/data/whosonfirst-data
+> ./bin/wof-validate -names /usr/local/data/whosonfirst-data
 error: Failed to parse name tag for /usr/local/data/whosonfirst-data/data/112/585/728/5/1125857285.geojson, because Failed to parse language tag 'eng_v_variant'
 ```
 
 ## See also
 
 * https://github.com/whosonfirst/go-whosonfirst-geojson-v2
-* https://github.com/whosonfirst/go-whosonfirst-index
+* https://github.com/whosonfirst/go-whosonfirst-iterate
