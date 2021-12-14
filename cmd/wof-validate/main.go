@@ -41,6 +41,9 @@ func main() {
 
 	iter_cb := func(ctx context.Context, path string, fh io.ReadSeeker, args ...interface{}) error {
 
+		// This should all be moved in to corresponding validate.ValiatePath, ValidateReader and
+		// ValidateBytes methods with an options struct mapping to the relevant CLI flags
+
 		_, uri_args, err := uri.ParseURI(path)
 
 		if err != nil {
