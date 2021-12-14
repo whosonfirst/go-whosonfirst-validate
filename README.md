@@ -6,6 +6,8 @@ Go package for validating Who's On First documents
 
 Documentation is incomplete.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/whosonfirst/go-whosonfirst-validate.svg)](https://pkg.go.dev/github.com/whosonfirst/go-whosonfirst-validate)
+
 ## Background
 
 So far this is a tool built and developed out of expediency (translation: why is `x` broken?). So far it validates the things that have needed to be validated.
@@ -20,11 +22,14 @@ This tool will attempt to load all the (principal) WOF documents (using `go-whos
 
 ```
 $> ./bin/wof-validate -h
-Usage of ./bin/wof-validate:
+Validate the contents of one or more whosonfirst/go-whosonfirst-iterate/v2 data sources.
+Usage:
+	 ./bin/wof-validate path(N) path(N)
+Valid arguments are:
+  -all
+    	Enable all validation checks.
   -iterator-uri string
-    	A valid whosonfirst/go-whosonfirst-iterate URI (default "repo://")
-  -liberal
-    	Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).
+    	A valid whosonfirst/go-whosonfirst-iterate/v2 URI (default "repo://")
   -names
     	Validate WOF/RFC 5646 names.
   -verbose
@@ -49,5 +54,6 @@ error: Failed to parse name tag for /usr/local/data/whosonfirst-data/data/112/58
 
 ## See also
 
-* https://github.com/whosonfirst/go-whosonfirst-geojson-v2
-* https://github.com/whosonfirst/go-whosonfirst-iterate
+* https://github.com/whosonfirst/go-whosonfirst-iterate/v2
+* https://github.com/whosonfirst/go-whosonfirst-feature
+* https://github.com/whosonfirst/go-whosonfirst-names

@@ -1,14 +1,14 @@
+// wof-validate is a command line tool to validate the contents of one or more whosonfirst/go-whosonfirst-iterate/v2 data sources.
 package main
 
 import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
+	"github.com/paulmach/orb/geojson"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 	"github.com/whosonfirst/go-whosonfirst-uri"
 	"github.com/whosonfirst/go-whosonfirst-validate"
-	"github.com/whosonfirst/warning"
 	"io"
 	"log"
 	"os"
@@ -20,10 +20,22 @@ func main() {
 
 	check_names := flag.Bool("names", false, "Validate WOF/RFC 5646 names.")
 
-	liberal := flag.Bool("liberal", false, "Allow go-whosonfirst-geojson-v2 warnings (rather than explicit errors).")
+	check_all := flag.Bool("all", false, "Enable all validation checks.")
+
 	verbose := flag.Bool("verbose", false, "Be chatty about what's happening.")
 
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Validate the contents of one or more whosonfirst/go-whosonfirst-iterate/v2 data sources.\n")
+		fmt.Fprintf(os.Stderr, "Usage:\n\t %s path(N) path(N)\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Valid arguments are:\n")
+		flag.PrintDefaults()
+	}
+
 	flag.Parse()
+
+	if *check_all {
+		*check_names = true
+	}
 
 	ctx := context.Background()
 
@@ -35,36 +47,33 @@ func main() {
 			return fmt.Errorf("Failed to parse URI '%s', %w", path, err)
 		}
 
+		body, err := io.ReadAll(fh)
+
+		if err != nil {
+			return fmt.Errorf("Failed to read body for '%s', %w", path, err)
+		}
+
+		_, err = geojson.UnmarshalFeature(body)
+
+		if err != nil {
+			return fmt.Errorf("Failed to unmarshal '%s', %w", path, err)
+		}
+
 		if uri_args.IsAlternate {
 			return nil
 		}
 
-		f, err := feature.LoadWOFFeatureFromReader(fh)
-
-		if err != nil {
-
-			if warning.IsWarning(err) && *liberal {
-				// log.Printf("error is warning and -liberal flag enabled so allowing")
-			} else {
-				return fmt.Errorf("Failed to load feature for '%s', %w", path, err)
-			}
-		}
-
-		// START OF put this in a package method (with options (that reads []byte instead of f))
-
 		if *check_names {
 
-			_, err := validate.ValidateNames(f)
+			_, err := validate.ValidateNames(body)
 
 			if err != nil {
 				return fmt.Errorf("Failed to parse name tag for %s, because %s", path, err)
 			}
 		}
 
-		// END OF put this in a package method (with options (that reads []byte instead of f))
-
 		if *verbose {
-			log.Printf("OK %s (%s) %s", path, f.Placetype(), f.Name())
+			log.Printf("OK %s\n", path)
 		}
 
 		return nil

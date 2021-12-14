@@ -1,14 +1,13 @@
 package validate
 
 import (
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2"
-	"github.com/whosonfirst/go-whosonfirst-geojson-v2/properties/whosonfirst"
+	"github.com/whosonfirst/go-whosonfirst-feature/properties"
 	"github.com/whosonfirst/go-whosonfirst-names/tags"
 )
 
-func ValidateNames(f geojson.Feature) (bool, error) {
+func ValidateNames(body []byte) (bool, error) {
 
-	names := whosonfirst.Names(f)
+	names := properties.Names(body)
 
 	for tag, _ := range names {
 
