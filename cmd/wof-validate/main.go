@@ -5,8 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/whosonfirst/go-whosonfirst-geojson-v2/feature"
-	"github.com/whosonfirst/go-whosonfirst-iterate/emitter"
-	"github.com/whosonfirst/go-whosonfirst-iterate/iterator"
+	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 	"github.com/whosonfirst/go-whosonfirst-uri"
 	"github.com/whosonfirst/go-whosonfirst-validate"
 	"github.com/whosonfirst/warning"
@@ -17,7 +16,7 @@ import (
 
 func main() {
 
-	iterator_uri := flag.String("iterator-uri", "repo://", "A valid whosonfirst/go-whosonfirst-iterate URI")
+	iterator_uri := flag.String("iterator-uri", "repo://", "A valid whosonfirst/go-whosonfirst-iterate/v2 URI")
 
 	check_names := flag.Bool("names", false, "Validate WOF/RFC 5646 names.")
 
@@ -28,13 +27,7 @@ func main() {
 
 	ctx := context.Background()
 
-	iter_cb := func(ctx context.Context, fh io.ReadSeeker, args ...interface{}) error {
-
-		path, err := emitter.PathForContext(ctx)
-
-		if err != nil {
-			return fmt.Errorf("Failed to derive path from context, %w", err)
-		}
+	iter_cb := func(ctx context.Context, path string, fh io.ReadSeeker, args ...interface{}) error {
 
 		_, uri_args, err := uri.ParseURI(path)
 
