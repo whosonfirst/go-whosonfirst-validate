@@ -59,6 +59,9 @@ func main() {
 			return fmt.Errorf("Failed to unmarshal '%s', %w", path, err)
 		}
 
+		// Validating alt files is an open issue
+		// https://github.com/whosonfirst/go-whosonfirst-validate/issues/2
+		
 		if uri_args.IsAlternate {
 			return nil
 		}
