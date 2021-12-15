@@ -5,7 +5,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/paulmach/orb/geojson"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 	"github.com/whosonfirst/go-whosonfirst-uri"
 	"github.com/whosonfirst/go-whosonfirst-validate"
@@ -37,12 +36,13 @@ func main() {
 		*check_names = true
 	}
 
+	opts := &validate.Options{
+		ValidateNames: *check_names,
+	}
+	
 	ctx := context.Background()
 
 	iter_cb := func(ctx context.Context, path string, fh io.ReadSeeker, args ...interface{}) error {
-
-		// This should all be moved in to corresponding validate.ValiatePath, ValidateReader and
-		// ValidateBytes methods with an options struct mapping to the relevant CLI flags
 
 		_, uri_args, err := uri.ParseURI(path)
 
@@ -50,32 +50,20 @@ func main() {
 			return fmt.Errorf("Failed to parse URI '%s', %w", path, err)
 		}
 
-		body, err := io.ReadAll(fh)
+		body, err := validate.EnsureValidGeoJSON(fh)
 
 		if err != nil {
-			return fmt.Errorf("Failed to read body for '%s', %w", path, err)
+			return fmt.Errorf("Failed to ensure GeoJSON for '%s', %w", path, err)
 		}
-
-		_, err = geojson.UnmarshalFeature(body)
-
-		if err != nil {
-			return fmt.Errorf("Failed to unmarshal '%s', %w", path, err)
-		}
-
-		// Validating alt files is an open issue
-		// https://github.com/whosonfirst/go-whosonfirst-validate/issues/2
 		
 		if uri_args.IsAlternate {
 			return nil
 		}
-
-		if *check_names {
-
-			_, err := validate.ValidateNames(body)
-
-			if err != nil {
-				return fmt.Errorf("Failed to parse name tag for %s, because %s", path, err)
-			}
+		
+		err = validate.Validate(body, opts)
+		
+		if err != nil {
+			return fmt.Errorf("Failed to validate '%s', %w", path, err)
 		}
 
 		if *verbose {
