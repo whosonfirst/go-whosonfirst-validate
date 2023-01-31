@@ -39,7 +39,7 @@ func main() {
 	opts := &validate.Options{
 		ValidateNames: *check_names,
 	}
-	
+
 	ctx := context.Background()
 
 	iter_cb := func(ctx context.Context, path string, fh io.ReadSeeker, args ...interface{}) error {
@@ -55,13 +55,13 @@ func main() {
 		if err != nil {
 			return fmt.Errorf("Failed to ensure GeoJSON for '%s', %w", path, err)
 		}
-		
+
 		if uri_args.IsAlternate {
 			return nil
 		}
-		
-		err = validate.Validate(body, opts)
-		
+
+		err = validate.ValidateWithOptions(body, opts)
+
 		if err != nil {
 			return fmt.Errorf("Failed to validate '%s', %w", path, err)
 		}

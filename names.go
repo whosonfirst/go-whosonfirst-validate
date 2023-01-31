@@ -1,11 +1,13 @@
 package validate
 
 import (
+	"fmt"
+
 	"github.com/whosonfirst/go-whosonfirst-feature/properties"
 	"github.com/whosonfirst/go-whosonfirst-names/tags"
 )
 
-func ValidateNames(body []byte) (bool, error) {
+func ValidateNames(body []byte) error {
 
 	names := properties.Names(body)
 
@@ -14,9 +16,9 @@ func ValidateNames(body []byte) (bool, error) {
 		_, err := tags.NewLangTag(tag)
 
 		if err != nil {
-			return false, err
+			return fmt.Errorf("'%s' is not a valid language tag, %w", tag, err)
 		}
 	}
 
-	return true, nil
+	return nil
 }

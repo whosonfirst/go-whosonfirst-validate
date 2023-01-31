@@ -2,16 +2,21 @@
 github.com/aaronland/go-json-query
 # github.com/aaronland/go-roster v0.0.2
 github.com/aaronland/go-roster
-# github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce
-github.com/hashicorp/errwrap
-# github.com/hashicorp/go-multierror v0.0.0-20171204182908-b7773ae21874
-github.com/hashicorp/go-multierror
 # github.com/paulmach/orb v0.4.0
 ## explicit
 github.com/paulmach/orb
 github.com/paulmach/orb/geojson
 # github.com/sfomuseum/go-edtf v0.3.1
+## explicit
 github.com/sfomuseum/go-edtf
+github.com/sfomuseum/go-edtf/calendar
+github.com/sfomuseum/go-edtf/common
+github.com/sfomuseum/go-edtf/level0
+github.com/sfomuseum/go-edtf/level1
+github.com/sfomuseum/go-edtf/level2
+github.com/sfomuseum/go-edtf/parser
+github.com/sfomuseum/go-edtf/re
+github.com/sfomuseum/go-edtf/tests
 # github.com/tidwall/gjson v1.12.1
 github.com/tidwall/gjson
 # github.com/tidwall/match v1.1.1
@@ -39,6 +44,10 @@ github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator
 ## explicit
 github.com/whosonfirst/go-whosonfirst-names
 github.com/whosonfirst/go-whosonfirst-names/tags
+# github.com/whosonfirst/go-whosonfirst-placetypes v0.3.0
+## explicit
+github.com/whosonfirst/go-whosonfirst-placetypes
+github.com/whosonfirst/go-whosonfirst-placetypes/placetypes
 # github.com/whosonfirst/go-whosonfirst-sources v0.1.0
 github.com/whosonfirst/go-whosonfirst-sources
 github.com/whosonfirst/go-whosonfirst-sources/sources
@@ -47,6 +56,3 @@ github.com/whosonfirst/go-whosonfirst-sources/sources
 github.com/whosonfirst/go-whosonfirst-uri
 # github.com/whosonfirst/walk v0.0.1
 github.com/whosonfirst/walk
-# github.com/whosonfirst/warning v0.1.1
-## explicit
-github.com/whosonfirst/warning
