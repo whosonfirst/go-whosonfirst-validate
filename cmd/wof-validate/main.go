@@ -17,6 +17,12 @@ func main() {
 
 	iterator_uri := flag.String("iterator-uri", "repo://", "A valid whosonfirst/go-whosonfirst-iterate/v2 URI")
 
+	check_name := flag.Bool("name", true, "Validate wof:name property.")
+	check_placetype := flag.Bool("placetype", true, "Validate wof:placetype property.")
+	check_repo := flag.Bool("repo", true, "Validate wof:repo property.")
+	check_edtf := flag.Bool("edtf", true, "Validate edtf: properties.")
+	check_iscurrent := flag.Bool("is-current", false, "Validate mz:is_current property.")
+
 	check_names := flag.Bool("names", false, "Validate WOF/RFC 5646 names.")
 
 	check_all := flag.Bool("all", false, "Enable all validation checks.")
@@ -34,10 +40,20 @@ func main() {
 
 	if *check_all {
 		*check_names = true
+		*check_name = true
+		*check_placetype = true
+		*check_repo = true
+		*check_edtf = true
+		*check_iscurrent = true
 	}
 
 	opts := &validate.Options{
-		ValidateNames: *check_names,
+		ValidateName:      *check_name,
+		ValidatePlacetype: *check_placetype,
+		ValidateRepo:      *check_repo,
+		ValidateEDTF:      *check_edtf,
+		ValidateIsCurrent: *check_iscurrent,
+		ValidateNames:     *check_names,
 	}
 
 	ctx := context.Background()
