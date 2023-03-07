@@ -5,8 +5,8 @@ github.com/aaronland/go-roster v1.0.0/go.mod h1:KIsYZgrJlAsyb9LsXSCvlqvbcCBVjCSq
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/dominikbraun/graph v0.16.0 h1:M8B6g/uVYHQ2TG+AdbRtyXg7/ASHZCihzzkttFUHidA=
-github.com/dominikbraun/graph v0.16.0/go.mod h1:yOjYyogZLY1LSG9E33JWZJiq5k83Qy2C6POAuiViluc=
+github.com/dominikbraun/graph v0.16.1 h1:ZtzDQFo32vxwSUsK4ioX8bfE45xoh8hQfavFMlKpaC8=
+github.com/dominikbraun/graph v0.16.1/go.mod h1:yOjYyogZLY1LSG9E33JWZJiq5k83Qy2C6POAuiViluc=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/golang/snappy v0.0.1/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
@@ -57,8 +57,8 @@ github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.3.1/go.mod h1:sAVuLSXDCyU1Yb
 github.com/whosonfirst/go-whosonfirst-names v0.1.0 h1:uXop/DwQqH60uDBZvHCPg1yRSQLScbm6VZyqcaED2KE=
 github.com/whosonfirst/go-whosonfirst-names v0.1.0/go.mod h1:0z86/nedM9T/5C8cAdbCMfRuBrkc33oEQ6vdJ6WybSg=
 github.com/whosonfirst/go-whosonfirst-placetypes v0.3.0/go.mod h1:ez0VFkGFbgT2/z2oi3PIuW6FewsZ2+5glyfDD79XEHk=
-github.com/whosonfirst/go-whosonfirst-placetypes v0.6.0 h1:O0GApVzyGB1vrSWf+v8J3SfUHPOjK0Ic5anL6m90y5Y=
-github.com/whosonfirst/go-whosonfirst-placetypes v0.6.0/go.mod h1:JSapxWcL8Zu64GRiaMJrYkdFX8z6KVNx/RsJ8aBKv7A=
+github.com/whosonfirst/go-whosonfirst-placetypes v0.7.0 h1:hm1dySC23ZZYHDleAE201+s5HTUtgle38JlKzfVZVHA=
+github.com/whosonfirst/go-whosonfirst-placetypes v0.7.0/go.mod h1:d7S4er4OFfFsgzMOnHH8mX8q+iPhXWB+merbrMDx/rk=
 github.com/whosonfirst/go-whosonfirst-sources v0.1.0 h1:JuKLa6KWke22jBfJ1pM9WQHoz1/3pbDv2C+aR+THPPQ=
 github.com/whosonfirst/go-whosonfirst-sources v0.1.0/go.mod h1:EUMHyGzUmqPPxlMmOp+28BFeoBdxxE0HCKRd67lkqGM=
 github.com/whosonfirst/go-whosonfirst-uri v1.2.0/go.mod h1:CuVygTCUpMG945MMvqHyqxvc/L5YkDaMrrVpRFr7ZxY=

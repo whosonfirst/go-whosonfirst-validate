@@ -8,14 +8,14 @@ require (
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.26
 	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.3.1
 	github.com/whosonfirst/go-whosonfirst-names v0.1.0
-	github.com/whosonfirst/go-whosonfirst-placetypes v0.6.0
+	github.com/whosonfirst/go-whosonfirst-placetypes v0.7.0
 	github.com/whosonfirst/go-whosonfirst-uri v1.3.0
 )
 
 require (
 	github.com/aaronland/go-json-query v0.1.3 // indirect
 	github.com/aaronland/go-roster v1.0.0 // indirect
-	github.com/dominikbraun/graph v0.16.0 // indirect
+	github.com/dominikbraun/graph v0.16.1 // indirect
 	github.com/tidwall/gjson v1.14.4 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
