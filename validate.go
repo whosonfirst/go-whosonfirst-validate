@@ -1,11 +1,9 @@
 package validate
 
 import (
-	_ "encoding/json"
 	"fmt"
 	"io"
 
-	// "github.com/paulmach/orb/geojson"
 	"github.com/tidwall/geojson"
 )
 
@@ -37,6 +35,12 @@ func EnsureValidGeoJSON(r io.Reader) ([]byte, error) {
 		return nil, fmt.Errorf("Failed to read body, %w", err)
 	}
 
+	// Earlier releases used paulmach/orb/geojson to do this but
+	// that dependency introduces a prohibitive size requirement
+	// on binaries produced by go-whosonfirst-validate-wasm. Specifically
+	// in an AWS Lambda context which has a hard limit of 6MB on
+	// the size of response bodies. (20230307/thisisaaronland)
+
 	parse_opts := geojson.DefaultParseOptions
 
 	_, err = geojson.Parse(string(body), parse_opts)
@@ -46,16 +50,6 @@ func EnsureValidGeoJSON(r io.Reader) ([]byte, error) {
 	}
 
 	return body, nil
-
-	/*
-		_, err = geojson.UnmarshalFeature(body)
-
-		if err != nil {
-			return nil, fmt.Errorf("Failed to unmarshal body, %w", err)
-		}
-
-		return body, nil
-	*/
 }
 
 func Validate(body []byte) error {
