@@ -1,10 +1,12 @@
 package validate
 
 import (
+	_ "encoding/json"
 	"fmt"
 	"io"
 
-	"github.com/paulmach/orb/geojson"
+	// "github.com/paulmach/orb/geojson"
+	"github.com/tidwall/geojson"
 )
 
 type Options struct {
@@ -35,13 +37,25 @@ func EnsureValidGeoJSON(r io.Reader) ([]byte, error) {
 		return nil, fmt.Errorf("Failed to read body, %w", err)
 	}
 
-	_, err = geojson.UnmarshalFeature(body)
+	parse_opts := geojson.DefaultParseOptions
+
+	_, err = geojson.Parse(string(body), parse_opts)
 
 	if err != nil {
 		return nil, fmt.Errorf("Failed to unmarshal body, %w", err)
 	}
 
 	return body, nil
+
+	/*
+		_, err = geojson.UnmarshalFeature(body)
+
+		if err != nil {
+			return nil, fmt.Errorf("Failed to unmarshal body, %w", err)
+		}
+
+		return body, nil
+	*/
 }
 
 func Validate(body []byte) error {
