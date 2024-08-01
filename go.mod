@@ -1,11 +1,13 @@
 module github.com/whosonfirst/go-whosonfirst-validate
 
-go 1.18
+go 1.22
+
+toolchain go1.22.4
 
 require (
 	github.com/sfomuseum/go-edtf v1.2.1
 	github.com/tidwall/geojson v1.4.5
-	github.com/whosonfirst/go-whosonfirst-feature v0.0.27
+	github.com/whosonfirst/go-whosonfirst-feature v0.0.28
 	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.4.1
 	github.com/whosonfirst/go-whosonfirst-names v0.1.0
 	github.com/whosonfirst/go-whosonfirst-placetypes v0.7.3
