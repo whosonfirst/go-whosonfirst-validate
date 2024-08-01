@@ -18,6 +18,7 @@ func main() {
 
 	iterator_uri := flag.String("iterator-uri", "repo://", "A valid whosonfirst/go-whosonfirst-iterate/v2 URI")
 
+	check_id := flag.Bool("id", true, "Validate wof:id property.")
 	check_name := flag.Bool("name", true, "Validate wof:name property.")
 	check_placetype := flag.Bool("placetype", true, "Validate wof:placetype property.")
 	check_repo := flag.Bool("repo", true, "Validate wof:repo property.")
@@ -40,6 +41,7 @@ func main() {
 	flag.Parse()
 
 	if *check_all {
+		*check_id = true
 		*check_names = true
 		*check_name = true
 		*check_placetype = true
@@ -49,6 +51,7 @@ func main() {
 	}
 
 	opts := &validate.Options{
+		ValidateId:        *check_id,
 		ValidateName:      *check_name,
 		ValidatePlacetype: *check_placetype,
 		ValidateRepo:      *check_repo,
