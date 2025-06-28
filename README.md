@@ -86,7 +86,7 @@ The `wof-validate` functionality is also available as a JavaScript compatible We
 ```shell
 $> make wasmjs
 GOOS=js GOARCH=wasm \
-		go build -mod vendor -ldflags="-s -w" \
+		go build -mod vendor -ldflags="-s -w" -tags wasmjs \
 		-o www/wasm/wof_validate.wasm \
 		cmd/wof-validate-wasm/main.go
 ```
