@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>go-whosonfirst-validate-wasm</title>
+    <link rel="stylesheet" type="text/css" href="css/validate.css" />
+  </head>
+
+  <body>
+      <div id="container">
+	  <div>
+	      <pre id="raw" contenteditable>{
+   "type": "Feature",
+   "properties": {
+	"wof:id": -1,
+        "wof:name": "Example",
+        "wof:placetype": "venue",
+        "edtf:inception": "1956/1958",
+        "edtf:cessation": ".."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.405008,
+     37.626061
+    ]
+   }
+  }
+	      </pre>
+	      <small style="font-style:italic;">Edit the GeoJSON Feature above, if necessary, and then click the <code>Validate</code> button.</small>
+	      <button id="submit" type="submit" disabled>Loading</button>	  
+	  </div>
+	  <div>
+	      <div id="feedback"></div>
+	  </div>
+      </div>
+  </body>
+  <script type="text/javascript" src="javascript/sfomuseum.golang.wasm.bundle.js"></script>  
+  <script type="text/javascript" src="javascript/validate.init.js"></script>
+</html>
