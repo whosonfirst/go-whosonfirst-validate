@@ -47,7 +47,7 @@ func main() {
 
 	defer export_func.Release()
 
-	js.Global().Set("validate_feature", export_func)
+	js.Global().Set("wof_validate", export_func)
 
 	c := make(chan struct{}, 0)
 

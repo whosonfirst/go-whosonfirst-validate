@@ -16,7 +16,7 @@ window.addEventListener("load", function load(event){
 
 	var str_f = JSON.stringify(f);
 	
-	validate_feature(str_f).then(rsp => {
+	wof_validate(str_f).then(rsp => {
 	    feedback.innerText = "Document is valid.";
 	}).catch(err => {
 	    feedback.innerText = "Failed to validate feature: " + err;
