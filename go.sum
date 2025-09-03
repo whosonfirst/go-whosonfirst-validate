@@ -6,6 +6,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dominikbraun/graph v0.23.0 h1:TdZB4pPqCLFxYhdyMFb1TBdFxp8XLcJfTTBQucVPgCo=
 github.com/dominikbraun/graph v0.23.0/go.mod h1:yOjYyogZLY1LSG9E33JWZJiq5k83Qy2C6POAuiViluc=
+github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkpeCY=
+github.com/dustin/go-humanize v1.0.1/go.mod h1:Mu1zIs6XwVuF/gI1OepvI0qD18qycQx+mFykh5fBlto=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/golang/snappy v0.0.1/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
@@ -55,8 +57,8 @@ github.com/whosonfirst/go-whosonfirst-feature v0.0.29 h1:Sy5qE+dR3U6CYEJjDuflsjW
 github.com/whosonfirst/go-whosonfirst-feature v0.0.29/go.mod h1:sJl2dhA5l10Maukks4Kx6X6JwqtKD1NKLNJrmRkFOfE=
 github.com/whosonfirst/go-whosonfirst-flags v0.5.2 h1:vSx7fcM04HiSAEF+WOKfuyJawac99skN9HJAeqBXWpI=
 github.com/whosonfirst/go-whosonfirst-flags v0.5.2/go.mod h1:kozBozsyI8cKekUces1m10vJ301sH2EqLZtjX1xCSqQ=
-github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.1.0 h1:NE5HkwKuHqO+clCGNP5QY2pxblg02mGFeX8lFQ0K5Ho=
-github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.1.0/go.mod h1:8L1KzWtOnRue6Dvc9BI6hy4twHd6zu9XgKn8TlJ4d7g=
+github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.2.0 h1:tYnvMEJu/0a2q/QGOnuZ2eQ94wOybcddxQWVNSvYa2A=
+github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.2.0/go.mod h1:rQ7v8x2o4klGsWRneUxvZXAVJZUrDPvNl6ubxRBVq7c=
 github.com/whosonfirst/go-whosonfirst-names v0.1.0 h1:uXop/DwQqH60uDBZvHCPg1yRSQLScbm6VZyqcaED2KE=
 github.com/whosonfirst/go-whosonfirst-names v0.1.0/go.mod h1:0z86/nedM9T/5C8cAdbCMfRuBrkc33oEQ6vdJ6WybSg=
 github.com/whosonfirst/go-whosonfirst-placetypes v0.8.0 h1:H0scSA+UoglzTdKYFHbx38B0m+FgfYymr7p/rIKKAn4=

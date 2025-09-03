@@ -2,13 +2,11 @@ module github.com/whosonfirst/go-whosonfirst-validate
 
 go 1.24
 
-toolchain go1.24.5
-
 require (
 	github.com/sfomuseum/go-edtf v1.2.1
 	github.com/tidwall/geojson v1.4.5
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.29
-	github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.1.0
+	github.com/whosonfirst/go-whosonfirst-iterate/v3 v3.2.0
 	github.com/whosonfirst/go-whosonfirst-names v0.1.0
 	github.com/whosonfirst/go-whosonfirst-placetypes v0.8.0
 	github.com/whosonfirst/go-whosonfirst-uri v1.3.0
@@ -18,6 +16,7 @@ require (
 	github.com/aaronland/go-json-query v0.1.6 // indirect
 	github.com/aaronland/go-roster v1.0.0 // indirect
 	github.com/dominikbraun/graph v0.23.0 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/paulmach/orb v0.11.1 // indirect
 	github.com/tidwall/geoindex v1.4.4 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
