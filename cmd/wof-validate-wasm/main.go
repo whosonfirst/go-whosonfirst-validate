@@ -2,52 +2,21 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"syscall/js"
 
 	"github.com/whosonfirst/go-whosonfirst-validate"
+	"github.com/whosonfirst/go-whosonfirst-validate/wasm"	
 )
-
-func ExportFunc(opts *validate.Options) js.Func {
-
-	return js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-
-		geojson_data := args[0].String()
-
-		handler := js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-
-			resolve := args[0]
-			reject := args[1]
-
-			go func() {
-
-				err := validate.ValidateWithOptions([]byte(geojson_data), opts)
-
-				if err != nil {
-					reject.Invoke(fmt.Sprintf("Failed to export data, %v", err))
-					return
-				}
-
-				resolve.Invoke()
-			}()
-
-			return nil
-		})
-
-		promiseConstructor := js.Global().Get("Promise")
-		return promiseConstructor.New(handler)
-	})
-}
 
 func main() {
 
 	opts := validate.DefaultValidateOptions()
-	export_func := ExportFunc(opts)
+	validate_func := wasm.ValidateFunc(opts)
 
-	defer export_func.Release()
+	defer validate_func.Release()
 
-	js.Global().Set("wof_validate", export_func)
+	js.Global().Set("wof_validate", validate_func)
 
 	c := make(chan struct{}, 0)
 
